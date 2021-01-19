@@ -56,11 +56,11 @@ void Principal::on_cmdCalcular_released()
 
         ui->outResultado->setPlainText(NULL);
         for(int i=0; i< total; i++){
-        ui->outResultado->appendPlainText("Empleado: "+trabajador[i]->nombre() +"\n"+
-                                          "Salario: "+QString::number(trabajador[i]->salario()) +"\n"+
-                                          "Descuento (9.5%): $"+QString::number(trabajador[i]->descuento()) +"\n"+
-                                          "Salario Neto: $"+QString::number(trabajador[i]->salarioNeto()) +
-                                                           "\n-------------------------------------");
+        ui->outResultado->appendPlainText( "Obrero: "+trabajador[i]->nombre() +"\n"+
+                                                "Salario: "+QString::number(trabajador[i]->salario()) +"\n"+
+                                                "Descuento (9.5%): $"+QString::number(trabajador[i]->descuento()) +"\n"+
+                                                "Salario Neto: $"+QString::number(trabajador[i]->salarioNeto()) + "\n"+
+                                                "- - - - - - - - - - - - - - - - "+"\n");
          qDebug() << trabajador[i]->nombre() << trabajador[i]->salario() << trabajador[i]->descuento() << trabajador[i]->salarioNeto();
         }
         ui->inNombre->setText(NULL);
@@ -101,7 +101,7 @@ void Principal::guardar()
 void Principal::abrir()
 {
     QString nombre = QFileDialog::getOpenFileName(this, "Abrir archivo",
-                                                      "C:/Users/ACER ASPIRE3", "config(*.txt)");
+                                                      "c:/Ususarios", "config(*.txt)");
         QFile file(nombre);
 
         if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
